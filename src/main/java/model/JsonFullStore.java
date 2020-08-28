@@ -13,17 +13,14 @@ public class JsonFullStore {
     private String expensive;
 
     public JsonFullStore(){}
-    public JsonFullStore(StoreDTO storeDTO, String expensive) {
-        this.storeDTO = storeDTO;
-        this.expensive = expensive;
-    }
+
 
     public StoreDTO getStoreDTO() {
         return storeDTO;
     }
 
-    public void setStoreDTO(StoreDTO storeDTO) {
-        this.storeDTO = storeDTO;
+    public void setStoreDTO(StoreDTO store) {
+        this.storeDTO = store;
     }
 
     public String getExpensive() {

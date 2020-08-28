@@ -31,7 +31,7 @@ public class BicycleDTO {
 
     @Override
     public String toString() {
-        return "BicycleDTO{" +
+        return "Bicycle{" +
                 "color='" + color + '\'' +
                 ", price=" + price +
                 '}';

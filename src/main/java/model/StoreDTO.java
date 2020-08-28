@@ -38,7 +38,7 @@ private BicycleDTO bicycle;
 
     @Override
     public String toString() {
-        return "StoreDTO{" +
+        return "Store{" +
                 "book=" + book +
                 ", bicycle=" + bicycle +
                 '}';

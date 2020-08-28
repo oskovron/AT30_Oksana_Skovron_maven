@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookDTO {
-    private String category;
+            private String category;
             private String author;
             private String title;
             private double price;
@@ -54,7 +54,7 @@ public class BookDTO {
 
     @Override
     public String toString() {
-        return "BookDTO{" +
+        return "Book{" +
                 "category='" + category + '\'' +
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
