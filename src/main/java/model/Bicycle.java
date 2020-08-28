@@ -2,13 +2,13 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class BicycleDTO {
+public class Bicycle {
 
     private String color;
     private int price;
 
-    public BicycleDTO(@JsonProperty("color") String color,
-                      @JsonProperty("price") int price) {
+    public Bicycle(@JsonProperty("color") String color,
+                   @JsonProperty("price") int price) {
         this.color = color;
         this.price = price;
     }

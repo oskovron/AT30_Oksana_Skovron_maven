@@ -10,11 +10,11 @@ import java.util.List;
 public class StoreDTO {
 
 private List<BookDTO> book;
-private BicycleDTO bicycle;
+private Bicycle bicycle;
 
 
     public StoreDTO(@JsonProperty("book") List<BookDTO> book,
-                    @JsonProperty("bicycle") BicycleDTO bicycle) {
+                    @JsonProperty("bicycle") Bicycle bicycle) {
         this.book = book;
         this.bicycle = bicycle;
     }
@@ -28,11 +28,11 @@ private BicycleDTO bicycle;
         this.book = book;
     }
 
-    public BicycleDTO getBicycle() {
+    public Bicycle getBicycle() {
         return bicycle;
     }
 
-    public void setBicycle(BicycleDTO bicycle) {
+    public void setBicycle(Bicycle bicycle) {
         this.bicycle = bicycle;
     }
 
