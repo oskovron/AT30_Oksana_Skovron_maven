@@ -12,6 +12,7 @@ public class JsonFullStore {
     @JsonProperty("expensive")
     private String expensive;
 
+    //Empty constructor required!
     public JsonFullStore(){}
 
 

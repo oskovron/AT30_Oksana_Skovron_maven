@@ -1,8 +1,5 @@
 package core;
 
-
-
-
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.InvalidJsonException;
 import com.jayway.jsonpath.JsonPath;
