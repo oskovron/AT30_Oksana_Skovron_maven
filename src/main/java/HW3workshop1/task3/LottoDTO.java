@@ -1,9 +1,12 @@
-package HWworkshop1;
+package HW3workshop1.task3;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Arrays;
+import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LottoDTO {
     @JsonProperty("lottoId")
     private int lottoId;
@@ -12,9 +15,10 @@ public class LottoDTO {
     private int[] winning_numbers;
 
     @JsonProperty("winners")
-    private WinnersDTO winners;
+    private List<WinnersDTO> winners;
 
-    public LottoDTO(int lottoId, int[] winning_numbers, WinnersDTO winners) {
+    public LottoDTO(){}
+    public LottoDTO(int lottoId, int[] winning_numbers, List<WinnersDTO> winners) {
         this.lottoId = lottoId;
         this.winning_numbers = winning_numbers;
         this.winners = winners;
@@ -36,17 +40,17 @@ public class LottoDTO {
         this.winning_numbers = winning_numbers;
     }
 
-    public WinnersDTO getWinners() {
+    public List<WinnersDTO> getWinners() {
         return winners;
     }
 
-    public void setWinners(WinnersDTO winners) {
+    public void setWinners(List<WinnersDTO> winners) {
         this.winners = winners;
     }
 
     @Override
     public String toString() {
-        return "LottoDTO{" +
+        return "Lotto{" +
                 "lottoId=" + lottoId +
                 ", winning_numbers=" + Arrays.toString(winning_numbers) +
                 ", winners=" + winners +

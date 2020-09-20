@@ -1,4 +1,4 @@
-package HWworkshop1;
+package HW3workshop1;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -25,9 +25,4 @@ public class Methods {
     public void dateGeneratorPlus(LocalDateTime currentDate, long years, int month, int days){
         System.out.println(LocalDateTime.now().plusYears(years).plusMonths(month).plusDays(days));
     }
-
-    //3. Написати метод, який зчитує дані з файлу у HashMap, ключем якої є номер рядку файлу, а value - це текст у рядку файлу.
-    //Записати у інший файл тільки ті значення HashMap, ключі яких є степенем 2.
-    //Використати перехоплення виключення ситуацій - (файлу не існує, ітд)
-
 }

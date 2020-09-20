@@ -1,15 +1,14 @@
-package HWworkshop1;
+package HW3workshop1.task3;
 
+import HW3workshop1.task3.LottoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LottoFullDTO {
+
     @JsonProperty("lotto")
     private LottoDTO lotto;
-
-    // TODO: What to do with this - line number?
-    private int lineNumber;
 
     public LottoFullDTO(){}
 
@@ -19,14 +18,6 @@ public class LottoFullDTO {
 
     public void setLotto(LottoDTO lotto) {
         this.lotto = lotto;
-    }
-
-    public int getLineNumber() {
-        return lineNumber;
-    }
-
-    public void setLineNumber(int lineNumber) {
-        this.lineNumber = lineNumber;
     }
 
     @Override

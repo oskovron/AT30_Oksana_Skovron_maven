@@ -15,7 +15,6 @@ public class JsonFullStore {
     //Empty constructor required!
     public JsonFullStore(){}
 
-
     public StoreDTO getStoreDTO() {
         return storeDTO;
     }

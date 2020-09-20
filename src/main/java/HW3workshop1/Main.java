@@ -1,4 +1,4 @@
-package HWworkshop1;
+package HW3workshop1;
 
 import java.time.LocalDateTime;
 

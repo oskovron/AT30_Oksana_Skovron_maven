@@ -1,4 +1,4 @@
-package HWworkshop1;
+package HW3workshop1.task3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -10,6 +10,7 @@ public class WinnersDTO {
     @JsonProperty("numbers")
     private int[] numbers;
 
+    public WinnersDTO(){}
     public WinnersDTO(int winnerId, int[] numbers) {
         this.winnerId = winnerId;
         this.numbers = numbers;
@@ -34,7 +35,7 @@ public class WinnersDTO {
 
     @Override
     public String toString() {
-        return "WinnersDTO{" +
+        return "Winners{" +
                 "winnerId=" + winnerId +
                 ", numbers=" + Arrays.toString(numbers) +
                 '}';
