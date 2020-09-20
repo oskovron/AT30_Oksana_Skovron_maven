@@ -31,6 +31,8 @@ public class JsonParserHWworkshop {
         for (LottoFullDTO lottoFullDTO: lottoList) {
             mapLotto.put(lottoList.indexOf(lottoFullDTO), lottoFullDTO.toString());
         }
+
+        //I'm stuck on taking row numbers and taking data from each row
         System.out.println("Map");
         System.out.println(mapLotto);
 
