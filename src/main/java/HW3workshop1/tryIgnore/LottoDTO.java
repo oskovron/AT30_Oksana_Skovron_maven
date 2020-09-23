@@ -1,4 +1,4 @@
-package HW3workshop1.task3;
+package HW3workshop1.tryIgnore;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

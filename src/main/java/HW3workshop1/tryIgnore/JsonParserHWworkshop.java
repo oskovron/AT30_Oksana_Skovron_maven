@@ -1,4 +1,4 @@
-package HW3workshop1.task3;
+package HW3workshop1.tryIgnore;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +29,7 @@ public class JsonParserHWworkshop {
                 (ArrayList.class, LottoFullDTO.class));
 
         for (LottoFullDTO lottoFullDTO: lottoList) {
-            mapLotto.put(lottoList.indexOf(lottoFullDTO), lottoFullDTO.toString());
+            mapLotto.put(lottoList.indexOf(lottoFullDTO), lottoFullDTO.getLotto().toString());
         }
 
         //I'm stuck on taking row numbers and taking data from each row
