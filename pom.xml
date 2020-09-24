@@ -29,7 +29,7 @@
         <jackson.databind.version>2.11.2</jackson.databind.version>
         <rest.assured.version>4.3.0</rest.assured.version>
         <commons.lang3.version>3.8.1</commons.lang3.version>
-
+        <selenium.webdriver.version>3.141.59</selenium.webdriver.version>
     </properties>
 
     <dependencies>
@@ -81,6 +81,13 @@
             <artifactId>commons-lang3</artifactId>
             <version>${commons.lang3.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.webdriver.version}</version>
+        </dependency>
+
 
     </dependencies>
 
