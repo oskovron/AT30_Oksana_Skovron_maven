@@ -9,6 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class HomePage {
+    private WebDriver driver;
+    public HomePage(WebDriver driver){
+        this.driver=driver;
+    }
+
     @FindBy(xpath = "//*[@data-name='flights']")
     private WebElement flightsTab;
 
@@ -31,7 +36,6 @@ public class HomePage {
 
     @FindBy(xpath = "//*[@class='select2-result-label']")
     private WebElement getDestinationCityFirstResult;
-
 
     @FindBy(xpath = "//*[text()='Economy']/parent::a/parent::div")
     private WebElement classDropdown;
@@ -73,40 +77,35 @@ public class HomePage {
     @FindBy(xpath = "//*[@name='flightmanualSearch']//button[contains(text(), 'Search')]")
     private WebElement searchButton;
 
-    private WebDriver driver;
-    public HomePage(WebDriver driver){
-        this.driver=driver;
-    }
-
-    public void goToFlightsTab(){flightsTab.click();}
-    public void enterDepartureCity(String city){
+    private void goToFlightsTab(){flightsTab.click();}
+    private void enterDepartureCity(String city){
         departureCityField.click();
         departureCityInput.sendKeys(city); //"London"
         departureCityFirstResult.click();
     }
-    public void enterDestinationCity(String city){
+    private void enterDestinationCity(String city){
         destinationCityField.click();
         destinationCityInput.sendKeys(city, Keys.RETURN); //"MYF"
         getDestinationCityFirstResult.click();
     }
 
-    public void clickClassDropdown(){
+    private void clickClassDropdown(){
         classDropdown.click();
     }
 
-    public void clickClassFirstDropdownItem(){
+    private void clickClassFirstDropdownItem(){
         classFirstDropdownItem.click();
     }
 
-    public  void clickClassBusinessDropdownItem(){
+    private  void clickClassBusinessDropdownItem(){
         classBusinessDropdownItem.click();
     }
 
-    public void clickClassEconomyDropdownItem(){
+    private void clickClassEconomyDropdownItem(){
         classEconomyDropdownItem.click();
     }
 
-    public void chooseClassFromDropdown(String className){
+    private void chooseClassFromDropdown(String className){
         classDropdownItemsList.stream()
                 .filter(x -> x.getText().equalsIgnoreCase(className))
                 .findFirst()
@@ -114,31 +113,31 @@ public class HomePage {
                 .click();
     }
 
-    public void clickAdultsPlusButton(int numberOfAdults){
+    private void clickAdultsPlusButton(int numberOfAdults){
         for(int i=2; i<=numberOfAdults; i++) {
             adultsButtonPlus.click();
         }
     }
 
-    public void clickChildPlusButton(int numberOfChildren) {
+    private void clickChildPlusButton(int numberOfChildren) {
         for (int i = 1; i <= numberOfChildren; i++){
             childButtonPlus.click();
     }
     }
 
-    public void clickInfantPlusButton(int numberOfInfants){
+    private void clickInfantPlusButton(int numberOfInfants){
         for (int i=1; i<= numberOfInfants; i++) {
             infantButtonPlus.click();
         }
     }
 
-    public void clickDepartCalendar(){
+    private void clickDepartCalendar(){
         departCalendar.click();
     }
 
 
 
-    public SearchFlightResultsPage clickSearchButton(){
+    private SearchFlightResultsPage clickSearchButton(){
         searchButton.click();
         return PageFactory.initElements(driver, SearchFlightResultsPage.class);
     }

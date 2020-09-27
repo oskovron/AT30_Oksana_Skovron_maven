@@ -5,30 +5,65 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageobjects.SearchFlightResultsPage;
 
 public class FlightBookingTest extends BaseTest {
+    private BaseTestAdmin baseTestAdmin;
 
     @Test
     public void test(){
-        String departureCity ="London";
+        //Create test data
+        String departureCity ="POS";
         String destinationCity = "MYF";
         String flightClass = "business";
         int adultsNum = 2;
         int childrenNum = 1;
         int infantsNum = 1;
 
+        String firstName = "Oksana";
+        String lastName = "Skovron";
+        String email = "os@gmail.com";
+        String contactNumber = "3547877";
+        String address = "address 1 /7";
+        String country = "Spain";
+        String passengersName = "Passenger1";
+        String passengersAge = "25";
+        String passportNo = "ES58744";
+
+        //Admin credentials for https://www.phptravels.net/admin
+        String adminEmail = "admin@phptravels.com";
+        String adminPassword = "demoadmin)";
+
+        //Go to Flights tab, enter data and click Search
         homePage.searchFlights(departureCity, destinationCity, flightClass, adultsNum, childrenNum, infantsNum);
 
-        System.out.println(driver.findElement(By.xpath("//*[@class='ml-auto']//button")).getText().toLowerCase());
+        //Assert that search results page has opened.
+        System.out.println(searchFlightResultsPage.modifySearchButtonGetText().toLowerCase());
         Assert.assertTrue(searchFlightResultsPage.modifySearchButtonGetText().contains("modify search"),
-                "Search results page didn't load."); //npe ???
+                "Search results page didn't load.");
+
+        //Click "Book now" button on flight with cheapest flight
+        searchFlightResultsPage.clickBookNowButton();
+        //Assert that booking page has opened
+        Assert.assertTrue(bookingPage.bookAsAGuestFormText().contains("book as a guest"), "Booking page didn't open.");
+
+        //Fill in passengers' data
+        bookingPage.enterPassengersData(firstName, lastName, email,email,contactNumber, address,
+                country, passengersName, passengersAge, passportNo);
+
+        //Assert that invoice page opened and booking status is unpaid
+        Assert.assertTrue(invoicePage.payOnArrivalButtonText().contains("pay on arrival"), "Booking failed.");
+
+        //go to https://www.phptravels.net/admin
+        //log in
+        baseTestAdmin.adminLoginPage.loginAs(adminEmail, adminPassword);
+
+
     }
 
     @Test
     public void draftTest(){
 //        driver.get("https://www.phptravels.net/");
-        homePage.goToFlightsTab();
+//        homePage.goToFlightsTab();
 //        homePage.clickClassDropdown();
 //        homePage.clickClassBusinessDropdownItem();
 
