@@ -3,36 +3,32 @@ package testHW9;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FlightBookingTest extends BaseTest {
     private BaseTestAdmin baseTestAdmin;
+    //Create test data
+    String departureCity ="POS";
+    String destinationCity = "MYF";
+    String flightClass = "business";
+    int adultsNum = 2;
+    int childrenNum = 1;
+    int infantsNum = 1;
+
+    String firstName = "Oksana";
+    String lastName = "Skovron";
+    String email = "os@gmail.com";
+    String contactNumber = "3547877";
+    String address = "address 1 /7";
+    String country = "Spain";
+    String passengersName = "Passenger1";
+    String passengersAge = "25";
+    String passportNo = "ES58744";
 
     @Test
-    public void test(){
-        //Create test data
-        String departureCity ="POS";
-        String destinationCity = "MYF";
-        String flightClass = "business";
-        int adultsNum = 2;
-        int childrenNum = 1;
-        int infantsNum = 1;
-
-        String firstName = "Oksana";
-        String lastName = "Skovron";
-        String email = "os@gmail.com";
-        String contactNumber = "3547877";
-        String address = "address 1 /7";
-        String country = "Spain";
-        String passengersName = "Passenger1";
-        String passengersAge = "25";
-        String passportNo = "ES58744";
-
-        //Admin credentials for https://www.phptravels.net/admin
-        String adminEmail = "admin@phptravels.com";
-        String adminPassword = "demoadmin)";
-
+    public void testBooking(){
         //Go to Flights tab, enter data and click Search
         homePage.searchFlights(departureCity, destinationCity, flightClass, adultsNum, childrenNum, infantsNum);
 
@@ -52,29 +48,23 @@ public class FlightBookingTest extends BaseTest {
 
         //Assert that invoice page opened and booking status is unpaid
         Assert.assertTrue(invoicePage.payOnArrivalButtonText().contains("pay on arrival"), "Booking failed.");
-
-        //go to https://www.phptravels.net/admin
-        //log in
-        baseTestAdmin.adminLoginPage.loginAs(adminEmail, adminPassword);
-
-
     }
 
-    @Test
-    public void draftTest(){
+//    @Test
+//    public void draftTest(){
 //        driver.get("https://www.phptravels.net/");
 //        homePage.goToFlightsTab();
 //        homePage.clickClassDropdown();
 //        homePage.clickClassBusinessDropdownItem();
 
-        //pick date from calendar
-        WebElement calendar = driver.findElement(By.xpath("//*[@id='FlightsDateStart']"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", calendar);
-        calendar.click();
-        WebElement monthButton = driver.findElement(By.xpath("//*[@id='datepickers-container']"));
-        monthButton.click();
-
+//        //pick date from calendar
+//        WebElement calendar = driver.findElement(By.xpath("//*[@id='FlightsDateStart']"));
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].scrollIntoView(true);", calendar);
+////        calendar.click();
+//        WebElement monthButton = driver.findElement(By.xpath("//*[@id='datepickers-container']"));
+//        monthButton.click();
+//
 
 
         //Bad approach JS executor
@@ -82,5 +72,5 @@ public class FlightBookingTest extends BaseTest {
 //                .executeScript("document.getElementById('FlightsDateStart')" +
 //                ".setAttribute('value','15 Dec 2020')");
 
-    }
+//    }
 }

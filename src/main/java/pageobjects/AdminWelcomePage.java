@@ -11,7 +11,16 @@ public class AdminWelcomePage {
     @FindBy(xpath = "//*[@id='social-sidebar-menu']//a[contains(@href, 'admin/bookings')]")
     private WebElement bookingsLinkSideBar;
 
-    private void clickBookingsLinkSideBar(){
+    @FindBy(xpath= "//table")
+    private WebElement table;
+
+
+
+    public void clickBookingsLinkSideBar(){
         bookingsLinkSideBar.click();
     }
+    public String getTableText(){
+        return table.getText();
+    }
+
 }

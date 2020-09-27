@@ -5,6 +5,7 @@ import enums.BrowserEnum;
 import enums.EnvironmentEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -26,12 +27,11 @@ public class BaseTestAdmin {
         driver.get("https://www.phptravels.net/admin");
         adminLoginPage = PageFactory.initElements(driver, AdminLoginPage.class);
         adminWelcomePage = PageFactory.initElements(driver, AdminWelcomePage.class);
-
         driver.manage().window().maximize();
     }
 
-//    @AfterClass
-//    public void teardown(){
-//        driver.quit();
-//    }
+    @AfterClass
+    public void teardown(){
+        driver.quit();
+    }
 }
