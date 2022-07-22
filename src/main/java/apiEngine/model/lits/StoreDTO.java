@@ -1,4 +1,4 @@
-package model;
+package apiEngine.model.lits;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

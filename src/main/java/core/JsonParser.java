@@ -3,12 +3,10 @@ package core;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import model.JsonFullStore;
-import model.StoreDTO;
+import apiEngine.model.lits.JsonFullStore;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class JsonParser {

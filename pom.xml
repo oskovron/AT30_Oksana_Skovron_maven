@@ -30,6 +30,7 @@
         <rest.assured.version>4.3.0</rest.assured.version>
         <commons.lang3.version>3.8.1</commons.lang3.version>
         <selenium.webdriver.version>3.141.59</selenium.webdriver.version>
+        <poi-ooxml.version>4.1.2</poi-ooxml.version>
     </properties>
 
     <dependencies>
@@ -88,6 +89,40 @@
             <version>${selenium.webdriver.version}</version>
         </dependency>
 
+        <!-- for Logger -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- for Logger -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi-ooxml.version}</version>
+        </dependency>
 
     </dependencies>
 
