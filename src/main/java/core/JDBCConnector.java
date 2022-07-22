@@ -1,6 +1,6 @@
 package core;
 
-import model.Users;
+import apiEngine.model.lits.Users;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
