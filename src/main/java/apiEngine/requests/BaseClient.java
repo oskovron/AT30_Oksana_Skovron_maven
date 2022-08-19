@@ -1,7 +1,7 @@
 package apiEngine.requests;
 
 import apiEngine.client.ResponseWrapper;
-import apiEngine.constants.Endpoints;
+import apiEngine.constants.EndpointsBookstore;
 import apiEngine.model.bookstore.requestmodels.GetTokenRequest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -13,7 +13,7 @@ public class BaseClient {
     protected RequestSpecification request;
 
     public BaseClient() {
-        RestAssured.baseURI = Endpoints.BASE_URL_BOOKSTORE;
+        RestAssured.baseURI = EndpointsBookstore.BASE_URL_BOOKSTORE;
         request = RestAssured.given();
         request.log().all();
         request.header("Content-Type", "application/json");
