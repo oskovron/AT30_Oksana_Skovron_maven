@@ -2,6 +2,7 @@ package apitests;
 
 import apiEngine.repositories.BookRepository;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -22,7 +23,7 @@ public class UpdateBookByIsbnTest {
         Response response = new BookRepository()
                 .updateBookByIsbn(userId, initialIsbn, replaceIsbn, "osUser", "osUserPass@1")
                 .getResponse();
-        response.getStatusCode();
+        Assert.assertEquals(response.getStatusCode(), 205);
 
     }
 }

@@ -1,6 +1,7 @@
 package apitests;
 
 import apiEngine.client.ResponseWrapper;
+import apiEngine.constants.Constants;
 import apiEngine.model.bookstore.requestmodels.GetTokenRequest;
 import apiEngine.model.bookstore.responcemodels.BookErrorResponse;
 import apiEngine.provider.AddBookToUserRequestProvider;
@@ -13,6 +14,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import apiEngine.requests.BooksClient;
+
+import static apiEngine.constants.Constants.REST_ASSURED_PASSWORD;
+import static apiEngine.constants.Constants.REST_ASSURED_USERNAME;
 
 public class AddBookToUserTest {
     private String credentials, userId, isbn;
@@ -42,7 +46,7 @@ public class AddBookToUserTest {
 //        Response response1 = booksClient.addBookToUserBearerAuth(addBookToUserRequest, getTokenRequest);
 
         ResponseWrapper<Response> response1 = new BookRepository()
-                .addBookToUserBearerAuth(userId, isbn, "osUser", "osUserPass@1");
+                .addBookToUserBearerAuth(userId, isbn, REST_ASSURED_USERNAME, REST_ASSURED_PASSWORD);
         Response responseBook = response1.getResponse();
         responseBook.prettyPrint();
         Object o = responseBook.getBody().jsonPath().get("");

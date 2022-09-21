@@ -9,11 +9,17 @@ import io.restassured.specification.RequestSpecification;
 
 import java.util.Base64;
 
+import static apiEngine.constants.EndpointsBookstore.BASE_URL_BOOKSTORE;
+
 public class BaseClient {
     protected RequestSpecification request;
 
     public BaseClient() {
-        RestAssured.baseURI = EndpointsBookstore.BASE_URL_BOOKSTORE;
+        getBookstoreApiClient();
+    }
+
+    private void getBookstoreApiClient() {
+        RestAssured.baseURI = BASE_URL_BOOKSTORE;
         request = RestAssured.given();
         request.log().all();
         request.header("Content-Type", "application/json");
@@ -64,7 +70,7 @@ public class BaseClient {
     }
 
     public void authorizeUserBearerAuth(GetTokenRequest tokenPayload) {
-        String token = new TokenClient().getToken(tokenPayload);
+        String token = new TokenClient().getTokenn(tokenPayload);
         request.header("Authorization", "Bearer " + token);
     }
 
